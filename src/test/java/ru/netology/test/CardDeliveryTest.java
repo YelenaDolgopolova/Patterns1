@@ -8,8 +8,6 @@ import ru.netology.data.DataGenerator;
 import ru.netology.data.RegistrationInfo;
 
 
-import java.time.Duration;
-
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
@@ -34,7 +32,7 @@ public class CardDeliveryTest {
         $("[class=checkbox__box]").click();
         $("[class=button__text]").click();
         $(withText("Успешно!")).shouldBe(Condition.appear);
-        $(".notification__content").shouldHave(Condition.text("Встреча успешно забронирована на " + generateDate(4)));
+        $(".notification__content").shouldHave(Condition.text("Встреча успешно запланирована на " + generateDate(4)));
         $("[data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("[data-test-id='date'] input").sendKeys(generateDate(6));
         $(withText("Запланировать")).click();
